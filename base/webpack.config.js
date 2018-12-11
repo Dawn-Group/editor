@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const port = Math.floor(Math.random() * 1000) + 8000;
 const ENV = process.env.NODE_ENV;
 const entry = {
-    main: ENV == 'production'? './src':'./example',
+    main: ENV === 'production' ? './src':'./example',
     react: ["react", "react-dom"]
 }
 const output = {
@@ -23,8 +23,13 @@ const resolve = {
     }     
 }
 
+const externals = {
+    "react": "React",
+    "react-dom": "ReactDOM"
+}
+
 const jsRule = {
-    test: /\.jsx?$/,
+    test: /\.(ts|js)x?$/,
     exclude: /node_modules/,
     use: {
         loader: "babel-loader",
@@ -133,6 +138,7 @@ if ("production" === ENV){
     module.exports = merge.strategy({
         'module.rules': 'replace'
     })(ComConfig, {
+        externals,
         module: {
             rules: [
                 jsRule,

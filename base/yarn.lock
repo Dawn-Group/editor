@@ -717,6 +717,14 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@types/draft-js@^0.10.26":
+  version "0.10.26"
+  resolved "https://registry.npmjs.org/@types/draft-js/-/draft-js-0.10.26.tgz#0b02324b7981cbab32d23cd0a1d968bbf576757b"
+  integrity sha512-D2P+wceBPeirQzUIUtQ844T2fUlQEK8SuOB9Jkz0VPkwa9qSicrB9x7RGtWUYeoe6ND7pmQVESviyeMuciLSSQ==
+  dependencies:
+    "@types/react" "*"
+    immutable "^3.8.1"
+
 "@types/prop-types@*":
   version "15.5.7"
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.5.7.tgz#c6f1e0d0109ff358b132d98b7b4025c7a7b707c5"
@@ -2882,6 +2890,11 @@ image-size@~0.5.0:
   version "0.5.5"
   resolved "https://registry.npmjs.org/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
   integrity sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=
+
+immutable@^3.8.1:
+  version "3.8.2"
+  resolved "https://registry.npmjs.org/immutable/-/immutable-3.8.2.tgz#c2439951455bb39913daf281376f1530e104adf3"
+  integrity sha1-wkOZUUVbs5kT2vKBN28VMOEErfM=
 
 immutable@^4.0.0-rc.12:
   version "4.0.0-rc.12"

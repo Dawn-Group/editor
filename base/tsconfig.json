@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "outDir": "dist",
+    "declarationDir": "dist/types",
+    "declaration": true,
+    "target": "es6",
+    "module": "commonjs",
+    "strict": false,
+    "jsx": "react",
+    "moduleResolution": "node",
+  },
+  "include": [
+    "src/*",
+    "example"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

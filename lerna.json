@@ -1,7 +1,8 @@
 {
   "packages": [
-    "plugins/*",
-    "base"
+    "base",
+    "plugins/*"
+    
   ],
   "npmClient": "yarn",
   "command": {

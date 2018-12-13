@@ -8,7 +8,7 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "outDir": "dist",
-    "declarationDir": "dist/types",
+    "declarationDir": "src/typings",
     "declaration": true,
     "target": "es6",
     "module": "commonjs",

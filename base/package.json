@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "The based core of eigen-editor",
   "main": "index.js",
+  "types": "./src/typings",
   "repository": "https://git.aipp.io/frontend/base/editor-core.git",
   "author": "Wangxianzhao",
   "license": "MIT",
   "dependencies": {
+    "decorate-component-with-props": "^1.1.0",
     "draft-js": "^0.10.5",
     "es6-shim": "^0.35.4",
     "react": "^16.6.3"

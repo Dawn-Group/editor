@@ -1,6 +1,6 @@
 {
   "name": "eigen-editor-core",
-  "version": "1.0.3",
+  "version": "1.0.4-alpha.0+f46872c",
   "description": "The based core of eigen-editor",
   "main": "index.js",
   "types": "./src/typings",
@@ -10,8 +10,8 @@
   "dependencies": {
     "decorate-component-with-props": "^1.1.0",
     "draft-js": "^0.10.5",
-    "eigen-editor-bold-plugin": "^1.0.3",
-    "eigen-editor-linkify-plguin": "^1.0.3",
+    "eigen-editor-bold-plugin": "^1.0.4-alpha.0+f46872c",
+    "eigen-editor-linkify-plguin": "^1.0.4-alpha.0+f46872c",
     "es6-shim": "^0.35.4",
     "react": "^16.6.3"
   },
@@ -51,5 +51,5 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.5"
   },
-  "gitHead": "38d75640dc42b099588c531e6945847c4349baf9"
+  "gitHead": "f46872c01d94bdee65f7deedf6b312e7b7580bc7"
 }

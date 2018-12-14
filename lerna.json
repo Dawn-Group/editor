@@ -4,7 +4,7 @@
     "plugins/*"
     
   ],
-  "npmClient": "yarn --interactive",
+  "npmClient": "yarn --interactive --network-concurrency 1",
   "command": {
     "publish": {
       "ignoreChanges": [

@@ -7,6 +7,7 @@
   "npmClient": "yarn",
   "command": {
     "publish": {
+      "otp": "282968",
       "ignoreChanges": [
         "ignore-file",
         "*.md"

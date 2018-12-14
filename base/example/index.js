@@ -2,9 +2,11 @@ import React, { Component, Fragment  } from "react";
 import ReactDOM from "react-dom";
 import BaseEditor from "@src";
 import { EditorState, RichUtils } from "draft-js";
-import  linkify  from "engin-editor-linkify-plguin";
-linkify();
+//import  linkify  from "eigin-editor-linkify-plguin";
+//linkify();
+import BoldBtton from "eigen-editor-bold-plugin";
 
+console.log(BoldBtton, "blod");
 const root = document.getElementById("root");
 
 class Demo extends Component {
@@ -38,6 +40,7 @@ class Demo extends Component {
         const { editorState } = this.state;
         return (
             <Fragment>
+                <BoldBtton editorState={editorState} onChange={this.onChange.bind(this)}>Blod</BoldBtton>
                 <button onClick={this.blodClick.bind(this, editorState)}>加粗</button>
                 <BaseEditor
                     editorState={editorState}

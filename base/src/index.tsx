@@ -14,6 +14,7 @@ import resolveDecorators from "./utils/resolveDecorators";
 import proxies from "./utils/proxies";
 
 interface BaseEditorProps {
+    props?: object,
     editorState: EditorState,
     onChange?: (editorState: EditorState, pluginMethods: object) => void,
     readOnly?: boolean,
@@ -22,7 +23,7 @@ interface BaseEditorProps {
     defaultKeyCommands?: boolean,
     defaultBlockRenderMap?: boolean,
     customStyleMap?: object,
-    blockRenderMap?: object,
+ //   blockRenderMap?: object,
     decorators?:[]
 }
 
@@ -361,13 +362,13 @@ export default class BaseEditor extends Component<BaseEditorProps, BaseEditorSta
             <Fragment>
                 <Editor
                     {...this.props}
-                    {...pluginHooks}
-                    {...accessibilityProps}
+                    // {...pluginHooks}
+                    // {...accessibilityProps}
                     editorState={this.props.editorState}
                     onChange={this.onChange}
                     readOnly={this.props.readOnly || this.state.readOnly}
-                    customStyleMap={customStyleMap}
-                    blockRenderMap={blockRenderMap}
+                    // customStyleMap={customStyleMap}
+                    // blockRenderMap={blockRenderMap}
                     ref = {this.editorRef}
                 />
             </Fragment>

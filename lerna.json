@@ -4,10 +4,9 @@
     "plugins/*"
     
   ],
-  "npmClient": "yarn",
+  "npmClient": "yarn --interactive",
   "command": {
     "publish": {
-      "otp": "282968",
       "ignoreChanges": [
         "ignore-file",
         "*.md"

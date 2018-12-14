@@ -7,12 +7,10 @@ const port = Math.floor(Math.random() * 1000) + 8000;
 const ENV = process.env.NODE_ENV;
 const entry = {
     main: ENV === 'production' ? './src':'./example',
-   // react: ["react", "react-dom"]
 }
 const output = {
     path: ENV === 'production' ? path.resolve(__dirname, "lib") : path.resolve(__dirname, "dist"),
-    libraryTarget: 'commonjs2',
-   // library: "BoldButton",
+    libraryTarget: 'umd',
     chunkFilename: "chunks/js/[hash:8]_[name]_[id].js",
     filename: ENV === 'production' ? "index.js": "dist/js/[name]_[hash].js"
 };
@@ -22,8 +20,6 @@ const resolve = {
     symlinks: true,
     alias: {
         "@src": path.resolve(__dirname, "src"),
-     //   "react": "react/cjs/react.production.min.js",
-     //   "react-dom": "react/cjs/react-dom.production.min.js"
     }     
 }
 
@@ -143,7 +139,7 @@ if ("production" === ENV){
     module.exports = merge.strategy({
         'module.rules': 'replace'
     })(ComConfig, {
-      //  externals,
+       // externals,
         module: {
             rules: [
                 jsRule,
@@ -168,7 +164,7 @@ if ("production" === ENV){
                 cssModules: true
             })
         ],
-     //   optimization,
+      //  optimization,
       //  performance
     });
 } else {

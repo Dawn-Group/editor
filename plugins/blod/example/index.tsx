@@ -19,33 +19,14 @@ class Demo extends Component {
         })
     }
 
-    // handleKeyCommand(command, editorState) {
-    //     const newState = RichUtils.handleKeyCommand(editorState, command);
-    //     if (newState) {
-    //         this.onChange(newState);
-    //         return 'handled';
-    //     } else {
-    //         return 'not-handled';
-    //     }
-    // }
-
-    // blodClick(editorState) {
-    //     this.onChange(RichUtils.toggleInlineStyle(editorState, 'BOLD'));
-    //     console.log(editorState, "bloadClick")
-    // }
-
     render() {
         const { editorState } = this.state;
         return (
             <Fragment>
-                <BoldBtton editorState={editorState} onChange={this.onChange.bind(this)}>Blod</BoldBtton>
-                {/* <button onClick={this.blodClick.bind(this, editorState)}>加粗</button> */}
+                <BoldBtton editorState={editorState}  onChange={this.onChange.bind(this)}>Blod</BoldBtton>
                 <Editor
                     editorState={editorState}
                     onChange={this.onChange.bind(this)}
-                   // handleKeyCommand={this.handleKeyCommand.bind(this)}
-                   // defaultBlockRenderMap={true}
-                   // plugins={[]}
                 />
             </Fragment>
         )

@@ -7,7 +7,7 @@ const port = Math.floor(Math.random() * 1000) + 8000;
 const ENV = process.env.NODE_ENV;
 const entry = {
     main: ENV === 'production' ? './src':'./example',
-    react: ["react", "react-dom"]
+ //   react: ["react", "react-dom"]
 }
 const output = {
     path: path.resolve(__dirname, "dist"),
@@ -138,7 +138,7 @@ if ("production" === ENV){
     module.exports = merge.strategy({
         'module.rules': 'replace'
     })(ComConfig, {
-        externals,
+    //    externals,
         module: {
             rules: [
                 jsRule,
@@ -168,7 +168,7 @@ if ("production" === ENV){
     });
 } else {
     module.exports = merge(ComConfig, {
-        devtool: "inline-source-map",
+        devtool: "eval-source-map",
         devServer
     })
 }

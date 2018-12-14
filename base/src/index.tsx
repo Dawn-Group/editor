@@ -18,7 +18,7 @@ interface BaseEditorProps {
     editorState: EditorState,
     onChange?: (editorState: EditorState, pluginMethods: object) => void,
     readOnly?: boolean,
-    plugins?:[],
+    plugins?:any[],
     defaultKeyBindings?: boolean,
     defaultKeyCommands?: boolean,
     defaultBlockRenderMap?: boolean,
@@ -44,7 +44,9 @@ export default class BaseEditor extends Component<BaseEditorProps, BaseEditorSta
         this.state = {
             editorState: EditorState.createEmpty()
         };
-        const plugins = [this.props, ...this.resolvePlugins()];
+
+        console.log(props, "props")
+     /*    const plugins = [this.props, ...this.resolvePlugins()];
         plugins.forEach((plugin) => {
             if (typeof plugin.initialize !== 'function') return;
             plugin.initialize(this.getPluginMethods());
@@ -61,7 +63,7 @@ export default class BaseEditor extends Component<BaseEditorProps, BaseEditorSta
         this.createFnHooks = this.createFnHooks.bind(this);
         this.onChange = this.onChange.bind(this);
         this.resolvePlugins = this.resolvePlugins.bind(this);
-        this.resolveblockRenderMap = this.resolveblockRenderMap.bind(this)
+        this.resolveblockRenderMap = this.resolveblockRenderMap.bind(this) */
     }
 
     editorRef: any;
@@ -69,15 +71,15 @@ export default class BaseEditor extends Component<BaseEditorProps, BaseEditorSta
 
     onChange(editorState: EditorState) {
         let newEditorState = editorState;
-        this.resolvePlugins().forEach((plugin) => {
+      /*   this.resolvePlugins().forEach((plugin) => {
             if (plugin && plugin.onChange){
                 newEditorState = plugin.onChange(newEditorState, this.getPluginMethods())
             }
         });
         if(this.props.onChange){
             this.props.onChange(newEditorState, this.getPluginMethods())
-        }
-       // this.setState({ editorState })
+        } */
+        this.setState({ editorState })
     }
 
     getPlugins(){
@@ -324,7 +326,7 @@ export default class BaseEditor extends Component<BaseEditorProps, BaseEditorSta
         return EditorState.acceptSelection(editorState, selection);
 }
 
-    componentWillMount(){
+   /*  componentWillMount(){
         const decorator = resolveDecorators(this.props, this.getEditorState, this.onChange);
 
         const editorState = EditorState.set(this.props.editorState, { decorator });
@@ -350,22 +352,24 @@ export default class BaseEditor extends Component<BaseEditorProps, BaseEditorSta
                 })
             }
         })
-    }
+    } */
 
     render() {
+        console.log(this.props.plugins, "plguins")
        // const { editorState } = this.state;
-        const pluginHooks = this.createPluginHooks()
+       /*  const pluginHooks = this.createPluginHooks()
         const customStyleMap = this.resolveCustomStyleMap();
         const accessibilityProps = this.resolveAccessibilityProps();
-        const blockRenderMap = this.resolveblockRenderMap();
+        const blockRenderMap = this.resolveblockRenderMap(); */
         return (
             <Fragment>
+                <div>{this.props.plugins.map((P, index) => <P key={index} editorState = {this.props.editorState} onChange={this.props.onChange}>Blod</P>)}</div>
                 <Editor
                     {...this.props}
                     // {...pluginHooks}
                     // {...accessibilityProps}
                     editorState={this.props.editorState}
-                    onChange={this.onChange}
+                    onChange={this.props.onChange}
                     readOnly={this.props.readOnly || this.state.readOnly}
                     // customStyleMap={customStyleMap}
                     // blockRenderMap={blockRenderMap}

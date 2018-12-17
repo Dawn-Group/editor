@@ -12,13 +12,13 @@
 1. lerna version 改变包的版本
 
 # 插件开发
-**策略模式**  
+**策略模式**  
 插件通过onChange事件在适当的时机去改变编辑器的editorState。
 
 ## 开发流程
   
 1. 创建插件包  
-在根目录下创建包  
+在根目录下创建包   
     ```sh
     lerna create  package-name --scope plugins
     ```

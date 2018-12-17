@@ -19,9 +19,9 @@
   
 1. 创建插件包  
 在根目录下创建包   
-    ```sh
-    lerna create  package-name --scope plugins
-    ```
+```sh
+lerna create  package-name --scope plugins
+```
 1. 配置插件项目进行开发  
 可以复制其他包的配置文件稍做修改即可。
     ```sh

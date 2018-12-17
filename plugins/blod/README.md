@@ -1,11 +1,43 @@
-# `blod`
+# `eigen-editor-bold-plugin`
 
-> TODO: description
+> 加粗编辑器中选中的文本
 
 ## Usage
 
-```
-const blod = require('blod');
+```js
+import React, { Component, Fragment } from "react";
+import ReactDOM from "react-dom";
+import { Editor, EditorState } from "draft-js";
+import BoldButton from "eigen-editor-bold-plugin";
 
-// TODO: DEMONSTRATE API
+const root = document.getElementById("root");
+
+class Demo extends Component {
+    state = {
+        editorState: EditorState.createEmpty()
+    }
+
+    onChange(editorState: EditorState) {
+        this.setState({
+            editorState
+        })
+    }
+
+    render() {
+        const { editorState } = this.state;
+        return (
+            <Fragment>
+                <BoldBtton editorState={editorState}  
+                    onChange={this.onChange.bind(this)}>Blod</BoldBtton>
+                <Editor
+                    editorState={editorState}
+                    onChange={this.onChange.bind(this)}
+                />
+            </Fragment>
+        )
+    }
+}
+
+ReactDOM.render(<Demo />, root);
+
 ```

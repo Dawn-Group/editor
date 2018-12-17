@@ -36,7 +36,10 @@ interface PluginHooks {
     [propName: string]: any
 }
 
-
+function resolePlugins(target:any){
+    console.log(target, "base2")
+}
+@resolePlugins
 export default class BaseEditor extends Component<BaseEditorProps, BaseEditorState> {
     constructor(props: BaseEditorProps) {
         super(props);
@@ -45,7 +48,7 @@ export default class BaseEditor extends Component<BaseEditorProps, BaseEditorSta
             editorState: EditorState.createEmpty()
         };
 
-        console.log(props, "props")
+     //   console.log(props, "props")
      /*    const plugins = [this.props, ...this.resolvePlugins()];
         plugins.forEach((plugin) => {
             if (typeof plugin.initialize !== 'function') return;
@@ -355,7 +358,7 @@ export default class BaseEditor extends Component<BaseEditorProps, BaseEditorSta
     } */
 
     render() {
-        console.log(this.props.plugins, "plguins")
+        // console.log(this.props.plugins, "plguins")
        // const { editorState } = this.state;
        /*  const pluginHooks = this.createPluginHooks()
         const customStyleMap = this.resolveCustomStyleMap();

@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import { Editor, EditorState } from "draft-js";
 import BoldBtton from "../lib";
 
-console.log(BoldBtton, "blod");
-
 const root = document.getElementById("root");
 
 class Demo extends Component {

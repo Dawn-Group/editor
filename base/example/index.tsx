@@ -6,10 +6,28 @@ import { EditorState } from "draft-js";
 //linkify();
 import BoldButton from "eigen-editor-bold-plugin";
 
-console.log(BoldButton, "blod");
+// console.log(BoldButton, "blod");
 const root = document.getElementById("root");
 
+function sealed(target){
+    console.log(target, "decorater")
+}
 
+function f(){
+    console.log("f()： evaluted");
+    return function(target, propertyKey: string, descriptor: PropertyDescriptor){
+        console.log("f(): called");
+    }
+}
+
+function g() {
+    console.log("g()： evaluted");
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
+        console.log("g(): called");
+    }
+}
+
+// @sealed
 class Demo extends Component {
     constructor(props){
         super(props)
@@ -18,7 +36,8 @@ class Demo extends Component {
         }
 
     }
-    
+
+   // @f() @g()
     onChange(editorState: EditorState){
         console.log(editorState, "onChange")
         this.setState({

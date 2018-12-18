@@ -7,19 +7,19 @@ const port = Math.floor(Math.random() * 1000) + 8000;
 const ENV = process.env.NODE_ENV;
 const entry = {
     main: ENV === 'production' ? './src':'./example',
-    react: ["react", "react-dom"]
 }
 const output = {
-    path: path.resolve(__dirname, "dist"),
+    path: ENV === 'production' ? path.resolve(__dirname, "lib") : path.resolve(__dirname, "dist"),
+    libraryTarget: 'umd',
     chunkFilename: "chunks/js/[hash:8]_[name]_[id].js",
-    filename: "js/[hash:8]_[name].js"
+    filename: ENV === 'production' ? "index.js": "dist/js/[name]_[hash].js"
 };
 
 const resolve = {
-    extensions: [".js", ".jsx", ".css", ".ts", ".tsx", ".less"],
+    extensions: [".js", ".jsx", ".css", ".ts", ".tsx", ".less", ".scss"],
     symlinks: true,
     alias: {
-        "@src": path.resolve(__dirname, "src")
+        "@src": path.resolve(__dirname, "src"),
     }     
 }
 
@@ -117,7 +117,8 @@ const ComConfig = {
     entry, 
     output,
     resolve,
-    plugins,
+    devtool: "eval-source-map",
+  //  plugins,
     module: {
         rules: [
             jsRule, 
@@ -125,10 +126,10 @@ const ComConfig = {
                 test: /\.css$/,
                 use: [styleRule, cssRule]
             },
-            {
+             {
                 test: /\.scss$/,
                 use: [styleRule, cssRule, scssRule]
-            }
+            } 
         ]
     },
     performance
@@ -138,7 +139,7 @@ if ("production" === ENV){
     module.exports = merge.strategy({
         'module.rules': 'replace'
     })(ComConfig, {
-        externals,
+       // externals,
         module: {
             rules: [
                 jsRule,
@@ -153,7 +154,7 @@ if ("production" === ENV){
             ]
         },  
         plugins: [
-            new CleanWebpackPlugin(['dist'], { verbose: true, watch: true, beforeEmit: true}),
+            new CleanWebpackPlugin([ENV === 'production' ?'lib': 'dist'], { verbose: true, watch: true, beforeEmit: true}),
             new ExtractCssChunks({
                 filename: "css/[name]_[hash:8].css",
                 chunkFilename: "chunks/css/[name]_[hash:8]_[id].css",
@@ -163,12 +164,13 @@ if ("production" === ENV){
                 cssModules: true
             })
         ],
-        optimization,
-        performance
+      //  optimization,
+      //  performance
     });
 } else {
     module.exports = merge(ComConfig, {
-        devtool: "inline-source-map",
+        devtool: "eval-source-map",
+        plugins,
         devServer
     })
 }

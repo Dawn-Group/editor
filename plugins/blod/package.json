@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "draft-js": "^0.10.5",
+    "draftjs-utils": "^0.9.4",
     "es6-shim": "^0.35.4",
     "react": "^16.6.3"
   },

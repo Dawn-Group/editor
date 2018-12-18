@@ -1,18 +1,17 @@
 {
-  "name": "eigen-editor-linkify-plguin",
-  "version": "1.0.5",
-  "description": "Linkify plugin for Eigen Editor.",
+  "name": "eigen-editor-common-components",
+  "version": "1.0.0",
+  "description": "Common components for eigen editor.",
   "keywords": [
-    "Linkify",
-    "eigen-editor",
-    "plugin",
-    "eigen-editor-plugin",
-    "eigen-editor-linkify-plguin"
+    "components",
+    "editor",
+    "eigen",
+    "eigen-editor"
   ],
   "author": "DreamerKing <wangxianzhao@aidigger.com>",
-  "homepage": "http://git@git.aipp.io:frontend/base/editor.git",
+  "homepage": "https://github.com/Dawn-Group/editor.git",
   "license": "MIT",
-  "main": "lib/linkify.js",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -25,11 +24,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.aipp.io:frontend/base/editor.git"
+    "url": "git+https://github.com/Dawn-Group/editor.git"
   },
   "scripts": {
     "test": "echo no test",
-    "build": "cross-env NODE_ENV=production webpack -p",
+    "build": "cross-env NODE_ENV=production webpack",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot",
     "lint": "tslint --ext .js --fix src",
     "precommit": "npm run lint"
@@ -39,7 +38,7 @@
     "braft-utils": "^3.0.9",
     "draft-js": "^0.10.5",
     "draftjs-utils": "^0.9.4",
-    "eigen-editor-common-components": "^1.0.0",
+    "eigen-utils": "^1.0.3",
     "es6-shim": "^0.35.4",
     "react": "^16.6.3"
   },
@@ -75,5 +74,7 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.5"
   },
-  "gitHead": "a0914f39409cff3757e3b25587f11cf89e465b61"
+  "bugs": {
+    "url": "https://github.com/Dawn-Group/editor/issues"
+  }
 }

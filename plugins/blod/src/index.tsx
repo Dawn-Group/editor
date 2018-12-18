@@ -24,4 +24,5 @@ class BoldButton extends Component<BlodButtonProps> {
     }
 }
 
+export { default as TextIndent } from './TextIndent';
 export default BoldButton

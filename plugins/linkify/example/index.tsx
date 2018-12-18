@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
 import { Editor, EditorState } from "draft-js";
-import BoldBtton, { TextIndent} from "../src";
+import LinkPlugin from "../src/index";
 
 const root = document.getElementById("root");
 
@@ -21,8 +21,7 @@ class Demo extends Component {
         const { editorState } = this.state;
         return (
             <Fragment>
-                <BoldBtton editorState={editorState}  onChange={this.onChange.bind(this)}>Blod</BoldBtton>
-                <TextIndent editorState={editorState} onChange={this.onChange.bind(this)}>sdd</TextIndent>
+                <LinkPlugin link="link title" unlink="unlink" inputPlaceHolder="placeholder" editorState={editorState} onChange={this.onChange.bind(this)}>链接</LinkPlugin>
                 <Editor
                     editorState={editorState}
                     onChange={this.onChange.bind(this)}

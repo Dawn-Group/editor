@@ -2,32 +2,9 @@ import React, { Component, Fragment  } from "react";
 import ReactDOM from "react-dom";
 import BaseEditor from "../src";
 import { EditorState } from "draft-js";
-//import  linkify  from "eigin-editor-linkify-plguin";
-//linkify();
 import BoldButton from "eigen-editor-bold-plugin";
-
-// console.log(BoldButton, "blod");
 const root = document.getElementById("root");
 
-function sealed(target){
-    console.log(target, "decorater")
-}
-
-function f(){
-    console.log("f()： evaluted");
-    return function(target, propertyKey: string, descriptor: PropertyDescriptor){
-        console.log("f(): called");
-    }
-}
-
-function g() {
-    console.log("g()： evaluted");
-    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
-        console.log("g(): called");
-    }
-}
-
-// @sealed
 class Demo extends Component {
     constructor(props){
         super(props)
@@ -37,7 +14,6 @@ class Demo extends Component {
 
     }
 
-   // @f() @g()
     onChange(editorState: EditorState){
         console.log(editorState, "onChange")
         this.setState({
@@ -45,20 +21,6 @@ class Demo extends Component {
         })
     }
 
-    // handleKeyCommand(command, editorState){
-    //     const newState = RichUtils.handleKeyCommand(editorState, command);
-    //     if(newState){
-    //         this.onChange(newState);
-    //         return 'handled';
-    //     }else {
-    //         return 'not-handled';
-    //     }
-    // }
-
-    // blodClick(editorState){
-    //     this.onChange(RichUtils.toggleInlineStyle(editorState, 'BOLD'));
-    //     console.log(editorState, "bloadClick")
-    // }
 
     render(){
         const { editorState } = this.state;
@@ -68,9 +30,7 @@ class Demo extends Component {
                 <BaseEditor
                     editorState={editorState}
                     onChange={this.onChange.bind(this)}
-                    // handleKeyCommand={this.handleKeyCommand.bind(this)}
-                    // defaultBlockRenderMap={true}
-                    plugins={[BoldButton]}
+                    plugins={[{tool: BoldButton, label: '加粗'}]}
                 />
             </Fragment>
         )    

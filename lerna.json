@@ -1,10 +1,11 @@
 {
   "packages": [
     "base",
+    "common",
     "plugins/*"
     
   ],
-  "npmClient": "yarn --interactive --network-concurrency 2",
+  "npmClient": "yarn",
   "command": {
     "publish": {
       "ignoreChanges": [
@@ -15,7 +16,7 @@
     },
     "bootstrap": {
       "ignore": "component-*",
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClientArgs": ["--interactive"]
     }
   },
   "version": "independent"

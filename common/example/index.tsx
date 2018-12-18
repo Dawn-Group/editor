@@ -1,10 +1,13 @@
 import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
 import { Editor, EditorState } from "draft-js";
-import BoldBtton, { TextIndent} from "../src";
+import { EigenModal, EigenDropDown } from "../lib";
+
+console.log(EigenDropDown, "e", EigenModal)
 
 const root = document.getElementById("root");
 
+console.log(EigenModal, "ksks")
 class Demo extends Component {
     state = {
         editorState: EditorState.createEmpty()
@@ -13,16 +16,16 @@ class Demo extends Component {
     onChange(editorState: EditorState) {
         console.log(editorState, "onChange")
         this.setState({
-            editorState
+            editorState,
+            visible: true
         })
     }
 
     render() {
-        const { editorState } = this.state;
+        const { editorState, visible } = this.state;
         return (
             <Fragment>
-                <BoldBtton editorState={editorState}  onChange={this.onChange.bind(this)}>Blod</BoldBtton>
-                <TextIndent editorState={editorState} onChange={this.onChange.bind(this)}>sdd</TextIndent>
+                {/* <BoldBtton editorState={editorState}  onChange={this.onChange.bind(this)}>Blod</BoldBtton> */}
                 <Editor
                     editorState={editorState}
                     onChange={this.onChange.bind(this)}
